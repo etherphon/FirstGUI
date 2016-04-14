@@ -26,9 +26,9 @@ public class StandardTempFormat implements TempFormatStrategy {
      * an added degree symbol.
      */
     @Override
-    public final String formatTemp(String temp) {
+    public final String formatTemp(Double temp) {
         
-        return String.format("%.1f", Double.parseDouble(temp)) + DEG_SYM;
+        return String.format("%.1f", temp) + DEG_SYM;
         
     }
     

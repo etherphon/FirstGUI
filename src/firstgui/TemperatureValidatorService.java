@@ -24,7 +24,6 @@ public class TemperatureValidatorService {
                 return false;
             }
         }
-        
         return true;   
     }
     

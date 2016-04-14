@@ -123,12 +123,13 @@ public class fToCConverter extends javax.swing.JFrame {
     private void btnConvertFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertFActionPerformed
         
         TempFormatStrategy tf = new StandardTempFormat();
-        String tempF = "";
+        TempConverterStrategy fToC = new FahrenheitToCelciusConverter();
+        Double tempF;
         
         try {
-            tempF = TempConverterService.convertFtoC(txtTempInput.getText()).toString();
+            tempF = fToC.convertTemp(txtTempInput.getText());
             lblNewTemp.setText(tf.formatTemp(tempF));
-            lblNewTempF.setText(tf.formatTemp(txtTempInput.getText()));
+            lblNewTempF.setText(tf.formatTemp(Double.parseDouble(txtTempInput.getText())));
         } catch (IllegalTempException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -138,11 +139,12 @@ public class fToCConverter extends javax.swing.JFrame {
     private void btnConvertCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertCActionPerformed
         
         TempFormatStrategy tf = new StandardTempFormat();
-        String tempC = "";
+        TempConverterStrategy cToF = new CelciusToFahrenheitConverter();
+        Double tempC;
         
         try {
-            tempC = TempConverterService.convertCtoF(txtTempInput.getText()).toString();
-            lblNewTemp.setText(tf.formatTemp(txtTempInput.getText()));
+            tempC = cToF.convertTemp(txtTempInput.getText());
+            lblNewTemp.setText(tf.formatTemp(Double.parseDouble(txtTempInput.getText())));
             lblNewTempF.setText(tf.formatTemp(tempC));
         } catch (IllegalTempException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

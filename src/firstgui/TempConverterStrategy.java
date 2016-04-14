@@ -9,8 +9,8 @@ package firstgui;
  *
  * @author etherdesign
  */
-public interface TempFormatStrategy {
+public interface TempConverterStrategy {
     
-    public abstract String formatTemp(Double temp);
+    public abstract Double convertTemp(String temp);
     
 }
