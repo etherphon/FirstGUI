@@ -14,6 +14,7 @@ public class TemperatureValidatorService {
     public static final boolean isValidTemp(String s) {
         int len = s.length();
         int i = 0;
+        int decCount = 0;
         
         if (s.charAt(0) == '-') {
             i = 1;
@@ -21,6 +22,10 @@ public class TemperatureValidatorService {
         
         for (int j = i; j < len; j++) {
             if (!Character.isDigit(s.charAt(j))) {
+                if (s.charAt(j) == '.' && decCount == 0) {
+                    decCount++;
+                    continue;
+                }
                 return false;
             }
         }
