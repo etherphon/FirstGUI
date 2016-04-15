@@ -3,18 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package firstgui;
+package TempConverter;
 
 /**
  *
  * @author etherdesign
  */
-public class TemperatureValidatorService {
+public class TemperatureValidatorService implements ValidatorStrategy {
     
-    public static final boolean isValidTemp(String s) {
-        int len = s.length();
+    @Override
+    public final boolean isValid(String s) {
+        
         int i = 0;
         int decCount = 0;
+        
+        if (s == null || s.isEmpty()) {
+            return false;
+        }
+        
+        int len = s.length();
         
         if (s.charAt(0) == '-') {
             i = 1;

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package firstgui;
+package TempConverter;
 
 /**
  *
  * @author etherdesign
  */
-public interface TempFormatStrategy {
+public interface ValidatorStrategy {
     
-    public abstract String formatTemp(Double temp);
+    public abstract boolean isValid(String s);
     
 }

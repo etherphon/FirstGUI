@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package firstgui;
+package TempConverter;
 
 /**
  *
@@ -17,8 +17,9 @@ public class CelciusToFahrenheitConverter implements TempConverterStrategy {
    
     @Override
     public final Double convertTemp(String cTemp) throws IllegalArgumentException {
+        ValidatorStrategy tempValidator = new TemperatureValidatorService();
         
-        if (!TemperatureValidatorService.isValidTemp(cTemp)) {
+        if (!tempValidator.isValid(cTemp)) {
             throw new IllegalTempException();
         } else {
             return (Double.parseDouble(cTemp) * 1.8) + 32;
